@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scope Creep Detector</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .warning { color: red; font-weight: bold; }
+        .calm { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Scope Creep Detector</h1>
+    <p>Risk Score: <span id="risk">0%</span></p>
+    <p>Late Tickets: <span id="tickets">0</span></p>
+    <p><span id="warning">Loading...</span></p>
+
+    <script>
+        async function updateDashboard() {
+            try {
+                const response = await fetch('/api/risk');
+                const data = await response.json();
+                document.getElementById('risk').textContent = `${data.risk}%`;
+                document.getElementById('tickets').textContent = data.tickets;
+                const warningEl = document.getElementById('warning');
+                warningEl.textContent = data.warning;
+                warningEl.className = data.risk > 20 ? 'warning' : 'calm';
+            } catch (error) {
+                console.error('Update failed:', error);
+            }
+        }
+
+        setInterval(updateDashboard, 5000);
+        updateDashboard();
+    </script>
+</body>
+</html>
