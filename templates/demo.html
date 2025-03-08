@@ -1,14 +1,47 @@
 <!-- templates/demo.html -->
-<h1>Scope Creep Detector MVP</h1>
-<style>
-    .video-container {
-        max-width: 800px; /* Max size */
-        margin: 0 auto; /* Centers it */
-    }
-</style>
-<div class="video-container">
-    <video controls>
-        <source src="/static/MVP-DEMO.mp4" type="video/mp4">
-    </video>
-</div>
-<p>Detects delays mid-sprint. Coming soon!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope Creep Detector MVP</title>
+    <style>
+        body {
+            margin: 0; /* No extra space around edges */
+            padding: 0;
+            height: 100vh; /* Full screen height */
+            display: flex; /* Magic to center stuff */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            flex-direction: column; /* Stack items top to bottom */
+            font-family: Arial, sans-serif; /* Clean font */
+            text-align: center; /* Center text */
+        }
+        h1 {
+            font-size: 2em; /* Big title */
+            margin-bottom: 20px; /* Space below title */
+        }
+        .video-container {
+            max-width: 800px; /* Video width */
+            margin-bottom: 20px; /* Space below video */
+        }
+        video {
+            width: 100%; /* Fills container */
+            height: auto; /* Keeps proportions */
+            max-height: 450px; /* Caps height to fit screen */
+        }
+        p {
+            font-size: 1.2em; /* Readable tagline */
+        }
+    </style>
+</head>
+<body>
+    <h1>Scope Creep Detector MVP</h1>
+    <div class="video-container">
+        <video controls>
+            <source src="/static/MVP-DEMO.mp4" type="video/mp4">
+            Your browser doesn’t support video imagine something awesome here!
+        </video>
+    </div>
+    <p>Detects delays mid-sprint. Coming soon!</p>
+</body>
+</html>
